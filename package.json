@@ -1,7 +1,7 @@
 {
-  "name": "hervoice",
+  "name": "HerVoice",
   "version": "1.0.0",
-  "description": "hervoice: An Ionic project",
+  "description": "HerVoice: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^1.3.3",
