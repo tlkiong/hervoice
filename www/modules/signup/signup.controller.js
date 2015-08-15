@@ -2,11 +2,13 @@
     angular.module("Signup")
         .controller("signupController", signupController);
 
-    signupController.$inject = ["$ionicPopup", "signupService", "$state", "loginService", "common"];
+    signupController.$inject = ["$ionicPopup", "signupService", "$state", "loginService", "common", "$cordovaCamera"];
 
-    function signupController($ionicPopup, signupService, $state, loginService, common) {
+    function signupController($ionicPopup, signupService, $state, loginService, common, $cordovaCamera) {
         var vm = this;
         vm.signup = signup;
+        vm.activate = activate;
+        vm.getImage = getImage;
 
         /* ======================================== Var ======================================== */
         vm.disableSignupBtn = true;
@@ -22,6 +24,40 @@
         myAlert = common.alert;
 
         /* ======================================== Public Methods ======================================== */
+        function getImage() {
+            var options = {
+                quality: 100,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                allowEdit: false,
+                encodingType: Camera.EncodingType.PNG,
+                targetWidth: 550,
+                targetHeight: 550,
+                popoverOptions: CameraPopoverOptions,
+                saveToPhotoAlbum: false
+            };
+
+            $cordovaCamera.getPicture(options).then(function(imageData) {
+                vm.authData["profilePic"] = "data:image/png;base64," + imageData;
+            }, function(err) {
+                myAlert(err);
+            });
+        }
+
+        function activate(type) {
+            var tempObj = {
+                male: false,
+                female: false
+            }
+
+            if(type == "male") {
+                tempObj.male = true;
+            } else if (type == "female") {
+                tempObj.female = true;
+            }
+            angular.copy(tempObj, vm.active);
+        }
+
         function signup() {
             common.showLoading("Signing up . . .");
             var tempObj = {};
@@ -54,6 +90,7 @@
 
         function init() {
             angular.copy({}, vm.authData);
+            vm.authData["profilePic"] = "./img/profileimageinside.png";
         }
 
         init();
