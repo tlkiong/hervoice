@@ -8,6 +8,17 @@
     flex-flow: column nowrap;
 }
 
+.bgColor {
+	background: -webkit-linear-gradient(#ef6d3b, #d83159); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#ef6d3b, #d83159); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#ef6d3b, #d83159); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#ef6d3b, #d83159); /* Standard syntax */
+}
+
+.txtFieldError {
+	color: #333;
+}
+
 .herVoiceLogo {
 	font-size: 10em;
 	background: -webkit-linear-gradient(#ef6d3b, #d83159); /* For Safari 5.1 to 6.0 */
@@ -77,12 +88,84 @@
 	text-transform: capitalize;
 }
 
-.txtFieldError {
-	border: 5px solid red;
-}
-
 .bgImage {
     background: url('../img/BG.png') no-repeat;
     background-size: cover;
 }
 
+.signupFormContainer {
+	
+}
+
+.signupFormContainer div {
+	width: 90%;
+	margin-left: 1.2em;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	margin-top: 1.5em;
+}
+
+.signupFormContainer div > label {
+	text-transform: capitalize;
+	text-align: left;
+	width: 50%;
+	padding-top: 0.5em;
+	font-size: 1.2em;
+	color: white;
+}
+
+.signupFormContainer div > input {
+	background: transparent;
+    border: none;
+    text-align: right;
+    font-size: 1.7em;
+    color: white;
+    width: 50%;
+}
+
+.createProfileBtn {
+	color: #d83159;
+	background-color: white;
+	text-transform: uppercase;
+	width: 90%;
+	font-size: 2em;
+	margin-left: 0.6em;
+	margin-top: 2em;
+	padding: 0.3em 0 0.5em 0;
+}
+
+.createProfileBtn:disabled {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+.signupFormContainer .halfBtn {
+	color: #d83159;
+	font-size: 1.5em;
+	height: 2.5em;
+	background-color: rgba(255, 255, 255, 0.5);
+	margin: 0;
+	height: 3em;
+	text-align: center;
+	text-transform: capitalize;
+	padding-top: 0.9em;
+}
+
+.signupFormContainer .halfBtn.selected {
+	background-color: white;
+}
+
+::-webkit-input-placeholder {
+   padding-top: 0.3em;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   padding-top: 0.3em;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   padding-top: 0.3em;
+}
+
+:-ms-input-placeholder {  
+   padding-top: 0.3em;
+}

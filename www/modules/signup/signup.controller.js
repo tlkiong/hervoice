@@ -11,6 +11,10 @@
         /* ======================================== Var ======================================== */
         vm.disableSignupBtn = true;
         vm.authData = {};
+        vm.active = {
+            male: false,
+            female: true
+        }
         // vm.signupForm <== can be accessed
 
         /* ======================================== Services ======================================== */

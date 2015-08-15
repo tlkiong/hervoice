@@ -1,21 +1,59 @@
-<ion-header-bar class="bar-dark">
-    <h1 class="title">SIGN UP</h1>
-    <!-- timer here -->
-</ion-header-bar>
-<ion-content>
-    <form name="vm.signupForm" class="list list-inset">
-      <label class="item item-input" ng-class="{'txtFieldError': vm.signupForm.emailAdd.$invalid }">
-        <input name="emailAdd" ng-model="vm.authData.emailAdd" type="email" placeholder="Email Address" required>
-      </label>
-      <label class="item item-input" ng-class="{'txtFieldError': vm.authData.password != vm.authData.confirmPassword || vm.signupForm.password.$invalid}">
-        <input name="password" ng-model="vm.authData.password" type="password" placeholder="Password" required>
-      </label>
-      <label class="item item-input" ng-class="{'txtFieldError': vm.authData.password != vm.authData.confirmPassword || vm.signupForm.confirmPassword.$invalid}">
-        <input name="confirmPassword" ng-model="vm.authData.confirmPassword" type="password" placeholder="Confirm Password" required>
-      </label>
-      <button ng-disabled="(vm.signupForm.emailAdd.$invalid || (vm.authData.password != vm.authData.confirmPassword || vm.signupForm.password.$invalid) || (vm.authData.password != vm.authData.confirmPassword || vm.signupForm.confirmPassword.$invalid))" class="button button-full button-positive" ng-click="vm.signup()">
-        Sign Up
-      </button>
-    </form>
-</ion-content>
+<form name="vm.signupForm" class="flexDown bgColor signupFormContainer">
+    <div class="flexAcross">
+      <label ng-class="{'txtFieldError': vm.signupForm.displayName.$invalid }">display name</label>
+      <input name="displayName" 
+      ng-model="vm.authData.displayName" 
+      type="text" 
+      placeholder="Display Name" 
+      ng-class="{'txtFieldError': vm.signupForm.displayName.$invalid }"
+      required>
+    </div>
 
+    <div class="flexAcross">
+      <label ng-class="{'txtFieldError': vm.signupForm.emailAdd.$invalid }">email address</label>
+      <input name="emailAdd" 
+      ng-model="vm.authData.emailAdd" 
+      type="email" 
+      placeholder="Email Address" 
+      ng-class="{'txtFieldError': vm.signupForm.emailAdd.$invalid }"
+      required>
+    </div>
+
+    <div class="flexAcross">
+      <label>password</label>
+      <input name="password" 
+      ng-model="vm.authData.password" 
+      type="password" 
+      placeholder="Password" 
+      ng-class="{'txtFieldError': vm.authData.password != vm.authData.confirmPassword || vm.signupForm.password.$invalid}"
+      required>
+    </div>
+
+    <div class="flexAcross">
+      <label>confirm password</label>
+      <input name="confirmPassword" 
+      ng-model="vm.authData.confirmPassword" 
+      type="password" 
+      placeholder="Confirm Password" 
+      ng-class="{'txtFieldError': vm.authData.password != vm.authData.confirmPassword || vm.signupForm.confirmPassword.$invalid}"
+      required>
+    </div>
+  
+    <div class="flexAcross">
+      <div class="halfBtn" ng-click="vm.active(male)" ng-class="{'selected': vm.active.male}">
+        male
+      </div>
+      <div class="halfBtn" ng-click="vm.active(female)" ng-class="{'selected': vm.active.female}">
+        female
+      </div>
+    </div>
+
+    <div class="flexAcross">
+      <label>current location</label>
+      
+    </div>
+
+    <button ng-disabled="(vm.signupForm.displayName.$invalid || vm.signupForm.emailAdd.$invalid || (vm.authData.password != vm.authData.confirmPassword || vm.signupForm.password.$invalid) || (vm.authData.password != vm.authData.confirmPassword || vm.signupForm.confirmPassword.$invalid))" class="createProfileBtn" ng-click="vm.signup()">
+        Create Profile
+    </button>
+</form>
