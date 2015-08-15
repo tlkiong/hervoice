@@ -2,12 +2,13 @@
     angular.module("Login")
         .controller("loginController", loginController);
 
-    loginController.$inject = ["$ionicPopup", "loginService"];
+    loginController.$inject = ["$ionicPopup", "loginService", "$state"];
 
-    function loginController($ionicPopup, loginService) {
+    function loginController($ionicPopup, loginService, $state) {
         var vm = this;
         vm.fbLogin = fbLogin;
-        vm.simpleLogin = simpleLogin;
+        vm.firebaseSimpleLogin = firebaseSimpleLogin;
+        vm.goToSignUpPage = goToSignUpPage;
 
         /* ======================================== Var ======================================== */
         vm.authData = {};
@@ -17,9 +18,12 @@
         popUp = $ionicPopup;
 
         /* ======================================== Public Methods ======================================== */
-        function simpleLogin() {
+        function goToSignUpPage() {
+            $state.go("signup");
+        }
 
-            vm.service.simpleLogin();
+        function firebaseSimpleLogin() {
+            vm.service.firebaseSimpleLogin();
         }
 
         function fbLogin() {

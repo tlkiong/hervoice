@@ -4,7 +4,9 @@
   angular.module('Core', [
     "ionic",
     "firebase",
-    "Login"
+    "Login",
+    "Signup",
+    "Sample"
     ])
 
   .config(function($urlRouterProvider){
