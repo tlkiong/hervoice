@@ -2,9 +2,9 @@
     angular.module("Login")
         .controller("loginController", loginController);
 
-    loginController.$inject = ["$ionicPopup", "loginService", "$state"];
+    loginController.$inject = ["$ionicPopup", "loginService", "$state", "common"];
 
-    function loginController($ionicPopup, loginService, $state) {
+    function loginController($ionicPopup, loginService, $state, common) {
         var vm = this;
         vm.fbLogin = fbLogin;
         vm.firebaseSimpleLogin = firebaseSimpleLogin;
@@ -23,17 +23,36 @@
         }
 
         function firebaseSimpleLogin() {
-            vm.service.firebaseSimpleLogin();
+            common.showLoading("Logging in . . .");
+
+            var tempObj = {};
+            angular.copy(vm.authData, tempObj);
+
+            vm.service.firebaseSimpleLogin(tempObj).then(function (rs) {
+                common.hideLoading();
+                angular.copy(rs, vm.service.loginUser);
+                $state.go("sample");
+            }, function (err) {
+                common.hideLoading();
+                popUp.alert({
+                    title: "Error",
+                    template: err
+                }).then(function (rs) {
+                    // When ok
+                }, function (err) {
+                    // TODO: Show error dialog?
+                });
+            })
         }
 
         function fbLogin() {
             vm.service.fbLogin().then(function (rs) {
-                angular.copy(rs, vm.authData);
+                angular.copy(rs, vm.service.loginUser);
+                $state.go("sample");
             }, function (err) {
-                var html = "<br><div style='font-size: 2em; text-align:center; font-weight:bold'>"+err+"</div>";
                 popUp.alert({
                     title: "Error",
-                    template: html
+                    template: err
                 }).then(function (rs) {
                     // When ok
                 }, function (err) {
@@ -43,7 +62,6 @@
         }
 
         /* ======================================== Private Methods ======================================== */
-        
 
         function init() {
             

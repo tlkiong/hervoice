@@ -2,9 +2,9 @@
     angular.module("Signup")
         .controller("signupController", signupController);
 
-    signupController.$inject = ["$ionicPopup", "signupService", "$state", "loginService"];
+    signupController.$inject = ["$ionicPopup", "signupService", "$state", "loginService", "common"];
 
-    function signupController($ionicPopup, signupService, $state, loginService) {
+    function signupController($ionicPopup, signupService, $state, loginService, common) {
         var vm = this;
         vm.signup = signup;
 
@@ -19,14 +19,19 @@
 
         /* ======================================== Public Methods ======================================== */
         function signup() {
+            common.showLoading("Signing up . . .");
             var tempObj = {};
             angular.copy(vm.authData, tempObj);
 
             vm.service.firebaseSignup(tempObj).then(function (rs) {
+                common.hideLoading();
+                common.showLoading("Logging in . . .");
                 loginService.firebaseSimpleLogin(tempObj).then(function (rs) {
                     angular.copy(rs, loginService.loginUser);
+                    common.hideLoading();
                     $state.go("sample");
                 }, function (err) {
+                    common.hideLoading();
                     popUp.alert({
                         title: "Error",
                         template: err
@@ -37,6 +42,7 @@
                     });
                 });
             }, function (err) {
+                common.hideLoading();
                 popUp.alert({
                     title: "Error",
                     template: err
