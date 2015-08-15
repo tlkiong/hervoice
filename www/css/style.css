@@ -1,10 +1,11 @@
-.txtFieldError {
-	border: 5px solid red;
+.flexAcross {
+    display: flex;
+    flex-flow: row nowrap;
 }
 
-.bgImage.scroll-content {
-    background: url('../img/BG.png') no-repeat;
-    background-size: cover;
+.flexDown {
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 .herVoiceLogo {
@@ -15,4 +16,73 @@
 	background: linear-gradient(#ef6d3b, #d83159); /* Standard syntax */
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	text-align: center;
+	margin-top: 0.3em;
 }
+
+.loginContainer {
+	position: absolute;
+	bottom: 1em;
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+.loginContainer .fbLogin {
+	background-color: #3b5998;
+	width: 91%;
+	margin: 1em 1em 0.25em 1em;
+	color: white;
+	font-size: 1.3em;
+	text-align: left;
+}
+
+.loginContainer .fbLogin i {
+	margin-right: 4em;
+	margin-left: 0.6em;
+}
+
+.loginContainer .emailLogin {
+	background-color: #00dfd7;
+	width: 91%;
+	margin: 0.25em 1em 1em 1em;
+	color: #333;
+	font-size: 1.3em;
+	text-align: left;
+}
+
+.loginContainer .emailLogin i {
+	color: #333;
+	margin-right: 2em;
+	margin-right: 4.3em;
+}
+
+.loginContainer .miniContainer {
+	text-align: center;
+	margin-left: 1.3em;
+	margin-top: 0.5em;
+}
+
+.loginContainer .miniContainer .forgotPwd {
+	text-transform: capitalize;
+	color: white;
+}
+
+.loginContainer .miniContainer .separator {
+	margin: 0 1em;
+	color: white;
+}
+
+.loginContainer .miniContainer .signup {
+	color: cyan;
+	text-transform: capitalize;
+}
+
+.txtFieldError {
+	border: 5px solid red;
+}
+
+.bgImage {
+    background: url('../img/BG.png') no-repeat;
+    background-size: cover;
+}
+
