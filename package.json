@@ -18,11 +18,11 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
+    "cordova-plugin-splashscreen",
+    "com.ionic.keyboard",
     "cordova-plugin-device",
     "cordova-plugin-console",
     "cordova-plugin-whitelist",
-    "cordova-plugin-splashscreen",
-    "com.ionic.keyboard",
     "cordova-plugin-camera"
   ],
   "cordovaPlatforms": [

@@ -2,22 +2,26 @@
     angular.module("Login")
         .controller("loginController", loginController);
 
-    loginController.$inject = ["$ionicPopup", "loginService", "$state", "common"];
+    loginController.$inject = ["$ionicPopup", "loginService", "$state", "common", "deviceService"];
 
-    function loginController($ionicPopup, loginService, $state, common) {
+    function loginController($ionicPopup, loginService, $state, common, deviceService) {
         var vm = this;
         // vm.fbLogin = fbLogin;
         vm.firebaseSimpleLogin = firebaseSimpleLogin;
         vm.goToSignUpPage = goToSignUpPage;
+        
 
         /* ======================================== Var ======================================== */
         vm.authData = {};
 
         /* ======================================== Services ======================================== */
         vm.service = loginService;
-        popUp = $ionicPopup;
+        device = deviceService;
+        myAlert = common.alert;
 
         /* ======================================== Public Methods ======================================== */
+        
+
         function goToSignUpPage() {
             $state.go("signup");
         }
@@ -34,14 +38,7 @@
                 $state.go("sample");
             }, function (err) {
                 common.hideLoading();
-                popUp.alert({
-                    title: "Error",
-                    template: err
-                }).then(function (rs) {
-                    // When ok
-                }, function (err) {
-                    // TODO: Show error dialog?
-                });
+                myAlert(err);
             })
         }
 
@@ -50,14 +47,7 @@
                 angular.copy(rs, vm.service.loginUser);
                 $state.go("sample");
             }, function (err) {
-                popUp.alert({
-                    title: "Error",
-                    template: err
-                }).then(function (rs) {
-                    // When ok
-                }, function (err) {
-                    // TODO: Show error dialog?
-                });
+                myAlert(err);
             });
         }
 

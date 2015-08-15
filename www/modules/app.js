@@ -1,16 +1,16 @@
 (function(){
   'use strict';
   
-  angular.module('Core', [
-    "ionic",
-    "firebase",
+  angular.module('app', [
+    "Core",
     "Login",
     "Signup",
-    "Sample"
+    "Sample"    
     ])
 
-  .config(function($urlRouterProvider){
+  .config(function($urlRouterProvider, $compileProvider){
       $urlRouterProvider.otherwise('/login');
+      $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile|content):|data:image\//);
   })
 
   .run(function($ionicPlatform, $rootScope) {

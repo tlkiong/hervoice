@@ -3,10 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/hervoice-icon/style.css">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -14,17 +17,18 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-  </head>
-  <body ng-app="Core">
-    <ion-nav-view></ion-nav-view>
-    <!-- Firebase -->
-    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-    <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
     
+    <!-- Firebase -->
+    <script src="lib/angularfire/dist/angularfire.js"></script>
+    <!-- AngularFire -->
+    <script src="lib/firebase/firebase.js"></script>
+
+  </head>
+  <body ng-app="app">
+    <ion-nav-view></ion-nav-view>
     <!-- bower:js -->
     <!-- endinject -->
     
@@ -38,8 +42,10 @@
     <script src="modules/login/login.js"></script>
     <script src="modules/login/login.service.js"></script>
     <script src="modules/login/login.controller.js"></script>
-    <script src="modules/app.js"></script>
+    <script src="modules/core/core.js"></script>
+    <script src="modules/core/device.service.js"></script>
     <script src="modules/core/common.service.js"></script>
+    <script src="modules/app.js"></script>
     <!-- endinject -->
   </body>
 </html>

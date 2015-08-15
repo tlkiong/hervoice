@@ -15,7 +15,7 @@
 
         /* ======================================== Services ======================================== */
         vm.service = signupService;
-        popUp = $ionicPopup;
+        myAlert = common.alert;
 
         /* ======================================== Public Methods ======================================== */
         function signup() {
@@ -32,25 +32,11 @@
                     $state.go("sample");
                 }, function (err) {
                     common.hideLoading();
-                    popUp.alert({
-                        title: "Error",
-                        template: err
-                    }).then(function (rs) {
-                        // When ok
-                    }, function (err) {
-                        // TODO: Show error dialog?
-                    });
+                    myAlert(err);
                 });
             }, function (err) {
                 common.hideLoading();
-                popUp.alert({
-                    title: "Error",
-                    template: err
-                }).then(function (rs) {
-                    // When ok
-                }, function (err) {
-                    // TODO: Show error dialog?
-                });
+                myAlert(err);
             });
 
             clearForm();
