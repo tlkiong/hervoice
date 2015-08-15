@@ -64,6 +64,7 @@
             angular.copy(vm.authData, tempObj);
 
             vm.service.firebaseSignup(tempObj).then(function (rs) {
+                console.log(rs);
                 common.hideLoading();
                 common.showLoading("Logging in . . .");
                 loginService.firebaseSimpleLogin(tempObj).then(function (rs) {

@@ -12,25 +12,29 @@
 
         /* ======================================== Var ======================================== */
         service.loginUser = {};
-        var firebase = common.firebase;
+        var firebase = common.getFirebase();
         
         /* ======================================== Services ======================================== */
 
         /* ======================================== Public Functions ======================================== */
         function firebaseLogout() {
-            firebase.unauth();
+            firebase.then(function (rs) {
+                rs.unauth();
+            });
         }
 
         function fbLogin() {
             var deferred = common.$q.defer();
             
-            firebase.authWithOAuthPopup("facebook", function(error, authData) {
-                if (error) {
-                    deferred.reject(error);
-                } else {
-                    deferred.resolve(authData);
-                }
-            });
+            firebase.then(function (rs) {
+                rs.authWithOAuthPopup("facebook", function(error, authData) {
+                    if (error) {
+                        deferred.reject(error);
+                    } else {
+                        deferred.resolve(authData);
+                    }
+                });
+            })
 
             return deferred.promise;
         }
@@ -38,17 +42,19 @@
         function firebaseSimpleLogin(userInfo) {
             var deferred = common.$q.defer();
 
-            firebase.authWithPassword({
-                email: userInfo.emailAdd,
-                password: userInfo.password
-            }, function(err, authData) {
-                if (err) {
-                    deferred.reject(err);
-                } else {
-                    deferred.resolve(authData);
-                }
-            }, {
-                remember: "sessionOnly"
+            firebase.then(function (rs) {
+                rs.authWithPassword({
+                    email: userInfo.emailAdd,
+                    password: userInfo.password
+                }, function(err, authData) {
+                    if (err) {
+                        deferred.reject(err);
+                    } else {
+                        deferred.resolve(authData);
+                    }
+                }, {
+                    remember: "sessionOnly"
+                });
             });
 
             return deferred.promise;

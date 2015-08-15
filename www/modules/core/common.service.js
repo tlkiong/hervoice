@@ -11,13 +11,25 @@
 			service.showLoading = showLoading;
 			service.hideLoading = hideLoading;
 			service.alert = alert;
+			service.getFirebase = getFirebase;
 
 			/* ======================================== Var ======================================== */
-			service.firebase = new Firebase("https://hervoice.firebaseio.com");
 
 	        /* ======================================== Services ======================================== */
 
 	        /* ======================================== Public Functions ======================================== */
+	        function getFirebase(path) {
+	        	var deferred = $q.defer();
+
+	        	if(path == undefined || path == null || path.length <= 0) {
+	        		deferred.resolve(new Firebase("https://hervoice.firebaseio.com"));
+	        	} else {
+	        		deferred.resolve(new Firebase("https://hervoice.firebaseio.com/"+path));
+	        	}
+
+	        	return deferred.promise;
+	        }
+	        
 	        function alert(msg) {
 	        	$ionicPopup.alert({
                     title: "Error",
