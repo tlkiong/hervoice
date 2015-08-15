@@ -2,7 +2,8 @@
   'use strict';
   
   angular.module('Core', [
-    'ionic'
+    'ionic',
+    "firebase"
     ])
 
   .config(function($urlRouterProvider){
