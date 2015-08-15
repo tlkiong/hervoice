@@ -8,6 +8,7 @@
         var service = this;
         service.fbLogin = fbLogin;
         service.firebaseSimpleLogin = firebaseSimpleLogin;
+        service.firebaseLogout = firebaseLogout;
 
         /* ======================================== Var ======================================== */
         service.loginUser = {};
@@ -16,6 +17,10 @@
         /* ======================================== Services ======================================== */
 
         /* ======================================== Public Functions ======================================== */
+        function firebaseLogout() {
+            firebase.unauth();
+        }
+
         function fbLogin() {
             var deferred = common.$q.defer();
             

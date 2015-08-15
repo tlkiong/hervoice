@@ -3,16 +3,6 @@
     <!-- timer here -->
 </ion-header-bar>
 <ion-content>
-    <div ng-hide="vm.authData.facebook" class="card" ng-click="vm.fbLogin()">
-        <button class="item">
-            Log In with Facebook
-        </button>
-    </div>
-    <div class="card" ng-show="vm.authData.facebook">
-        <div class="item item-text-wrap">
-            Hello {{vm.authData.facebook.displayName}}!
-        </div>
-    </div>
     <div class="list list-inset">
         <label class="item item-input">
             <input type="text" ng-model="vm.authData.emailAdd" placeholder="Email Address">

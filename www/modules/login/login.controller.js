@@ -6,7 +6,7 @@
 
     function loginController($ionicPopup, loginService, $state, common) {
         var vm = this;
-        vm.fbLogin = fbLogin;
+        // vm.fbLogin = fbLogin;
         vm.firebaseSimpleLogin = firebaseSimpleLogin;
         vm.goToSignUpPage = goToSignUpPage;
 
@@ -64,7 +64,7 @@
         /* ======================================== Private Methods ======================================== */
 
         function init() {
-            
+            common.firebase.unauth();
         }
 
         init();
