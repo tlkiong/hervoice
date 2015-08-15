@@ -2,13 +2,13 @@
   'use strict';
   
   angular.module('Core', [
-    'ionic',
-    "firebase"
+    "ionic",
+    "firebase",
+    "Login"
     ])
 
   .config(function($urlRouterProvider){
-      // $urlRouterProvider.otherwise('/main');
-      $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/login');
   })
 
   .run(function($ionicPlatform, $rootScope) {
