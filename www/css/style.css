@@ -184,7 +184,7 @@
 }
 
 
-/* ======================================= Hexagon image ======================================= */
+/* ======================================= Signup Form Container Hexagon image ======================================= */
 
 .signupFormContainer .imgContainer {
     border-bottom: none;
@@ -262,6 +262,141 @@
     z-index: 2;
     background: inherit;
 }
+/* ======================================= End Signup Form Container Hexagon image ======================================= */
+
+/* ======================================= Profile Container Hexagon image ======================================= */
+.profileTopContainer .imgContainer {
+    border-bottom: none;
+    margin-left: 8em;
+    margin-top: 1.2em;
+    margin-bottom: 1.5em;
+}
+
+.profileTopContainer .hexagon {
+    margin-left: 1.2em;
+    border-bottom: none;
+    margin-top: 0;
+    position: relative;
+    width: 120px;
+    height: 69.28px;
+    margin: 34.64px 0;
+    background-size: auto 138.5641px;
+    background-position: center;
+}
+
+.profileTopContainer .hexTop,
+.profileTopContainer .hexBottom {
+    position: absolute;
+    z-index: 1;
+    width: 84.85px;
+    height: 84.85px;
+    overflow: hidden;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background: inherit;
+    left: 18.57px;
+}
 
 
-/* ======================================= End Hexagon image ======================================= */
+/*counter transform the bg image on the caps*/
+
+.profileTopContainer .hexTop:after,
+.profileTopContainer .hexBottom:after {
+    content: "";
+    position: absolute;
+    width: 120.0000px;
+    height: 69.2820323027551px;
+    -webkit-transform: rotate(45deg) scaleY(1.7321) translateY(-34.6410px);
+    -ms-transform: rotate(45deg) scaleY(1.7321) translateY(-34.6410px);
+    transform: rotate(45deg) scaleY(1.7321) translateY(-34.6410px);
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+    background: inherit;
+}
+
+.profileTopContainer .hexTop {
+    top: -43.4264px;
+}
+
+.profileTopContainer .hexTop:after {
+    background-position: center top;
+}
+
+.profileTopContainer .hexBottom {
+    bottom: -43.4264px;
+}
+
+.profileTopContainer .hexBottom:after {
+    background-position: center bottom;
+}
+
+.profileTopContainer .hexagon:after {
+    content: "";
+    position: absolute;
+    top: 0.0000px;
+    left: 0;
+    width: 120.0000px;
+    height: 69.2820px;
+    z-index: 2;
+    background: inherit;
+}
+/* ======================================= End Profile Container Hexagon image ======================================= */
+
+.profileFooter {
+    background-color: #e3e3e3;
+}
+
+.profileTopContainer {
+    height: 20em;
+}
+
+.profileTopContainer .topMidContainer {
+    width: 100%;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.5em;
+    color: white;
+    margin: 0 0 1em 0;
+}
+
+.profileTopContainer .topBtmContainer {
+    width: 100%;
+    text-transform: capitalize;
+    font-size: 1.5em;
+    color: white;
+    margin: 0 1em 1em 1em;
+}
+
+.profileTopContainer .storiesContainer {
+    text-align: center;
+    margin-right: 2em;
+}
+
+.profileTopContainer .followersContainer {
+    text-align: center;
+    margin-right: 1.5em;
+}
+
+.profileTopContainer .followingContainer {
+    text-align: center;
+}
+
+.profileTopContainer .value {
+    margin-bottom: 0.2em;
+}
+
+.profileBtmContainer .iconContainer {
+    font-size: 6em;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.35em;
+    margin-bottom: 0.2em;
+}
+
+.profileBtmContainer .noStoriesRecorded {
+    font-size: 1.5em;
+    width: 100%;
+    text-align: center;
+}

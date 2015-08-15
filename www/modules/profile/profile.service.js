@@ -1,10 +1,10 @@
 (function() {
-    angular.module("Login")
-        .service("loginService", loginService);
+    angular.module("Profile")
+        .service("profileService", profileService);
 
-    loginService.$inject = ["$state", "$ionicPopup", "common"];
+    profileService.$inject = ["$state", "$ionicPopup", "common"];
 
-    function loginService($state, $ionicPopup, common) {
+    function profileService($state, $ionicPopup, common) {
         var service = this;
         service.fbLogin = fbLogin;
         service.firebaseSimpleLogin = firebaseSimpleLogin;
@@ -12,13 +12,13 @@
 
         /* ======================================== Var ======================================== */
         service.loginUser = {};
-        var firebase = common.getFirebase;
+        var firebase = common.getFirebase();
         
         /* ======================================== Services ======================================== */
 
         /* ======================================== Public Functions ======================================== */
         function firebaseLogout() {
-            firebase().then(function (rs) {
+            firebase.then(function (rs) {
                 rs.unauth();
             });
         }
@@ -26,7 +26,7 @@
         function fbLogin() {
             var deferred = common.$q.defer();
             
-            firebase().then(function (rs) {
+            firebase.then(function (rs) {
                 rs.authWithOAuthPopup("facebook", function(error, authData) {
                     if (error) {
                         deferred.reject(error);
@@ -42,7 +42,7 @@
         function firebaseSimpleLogin(userInfo) {
             var deferred = common.$q.defer();
 
-            firebase().then(function (rs) {
+            firebase.then(function (rs) {
                 rs.authWithPassword({
                     email: userInfo.emailAdd,
                     password: userInfo.password
@@ -50,12 +50,7 @@
                     if (err) {
                         deferred.reject(err);
                     } else {
-                        var path = "users/"+authData.uid;
-                        firebase(path).then(function (rs) {
-                            rs.once('value', function(dataSnapshot) {
-                                deferred.resolve(dataSnapshot.val());
-                            });
-                        });
+                        deferred.resolve(authData);
                     }
                 }, {
                     remember: "sessionOnly"

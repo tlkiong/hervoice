@@ -5,7 +5,8 @@
     "Core",
     "Login",
     "Signup",
-    "Sample"    
+    "Sample",
+    "Profile"
     ])
 
   .config(function($urlRouterProvider, $compileProvider){

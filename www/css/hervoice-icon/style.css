@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'hervoice-logo';
-	src:url('fonts/hervoice-logo.eot?-gd68q8');
-	src:url('fonts/hervoice-logo.eot?#iefix-gd68q8') format('embedded-opentype'),
-		url('fonts/hervoice-logo.ttf?-gd68q8') format('truetype'),
-		url('fonts/hervoice-logo.woff?-gd68q8') format('woff'),
-		url('fonts/hervoice-logo.svg?-gd68q8#hervoice-logo') format('svg');
+	src:url('fonts/hervoice-logo.eot?-wku9yj');
+	src:url('fonts/hervoice-logo.eot?#iefix-wku9yj') format('embedded-opentype'),
+		url('fonts/hervoice-logo.ttf?-wku9yj') format('truetype'),
+		url('fonts/hervoice-logo.woff?-wku9yj') format('woff'),
+		url('fonts/hervoice-logo.svg?-wku9yj#hervoice-logo') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,12 +23,18 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-hervoice:before {
+.icon-email:before {
 	content: "\e600";
 }
-.icon-email:before {
-	content: "\e611";
-}
 .icon-fb:before {
-	content: "\e612";
+	content: "\e601";
+}
+.icon-hervoice:before {
+	content: "\e602";
+}
+.icon-nostory:before {
+	content: "\e603";
+}
+.icon-settings:before {
+	content: "\e604";
 }

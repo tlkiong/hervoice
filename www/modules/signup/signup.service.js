@@ -30,8 +30,9 @@
                         tempObj[userData.uid] = {
                             displayName: userInfo.displayName,
                             emailAdd: userInfo.emailAdd,
-                            loaction: userInfo.location,
-                            profilePic: userInfo.profilePic
+                            location: userInfo.location,
+                            profilePic: userInfo.profilePic,
+                            gender: userInfo.gender
                         }
 
                         firebase("users").then(function (rs1) {

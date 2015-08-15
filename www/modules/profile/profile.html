@@ -1,0 +1,53 @@
+<ion-content>
+    <div class="profileTopContainer bgColor flexDown">
+        <div class="imgContainer">
+            <div class="hexagon" ng-style="{'background-image': 'url(' + vm.loggedInUser.profilePic + ')'}">
+                <div class="hexTop"></div>
+                <div class="hexBottom"></div>
+            </div>
+        </div>
+        <div class="topMidContainer">
+            {{vm.loggedInUser.location}}
+        </div>
+        <div class="flexAcross topBtmContainer">
+            <div class="flexDown storiesContainer">
+                <div class="value">
+                    {{vm.loggedInUser.stories}}
+                </div>
+                <div>
+                    stories
+                </div>
+            </div>
+            <div class="flexDown followersContainer">
+                <div class="value">
+                    {{vm.loggedInUser.followers}}
+                </div>
+                <div>
+                    followers
+                </div>
+            </div>
+            <div class="flexDown followingContainer">
+                <div class="value">
+                    {{vm.loggedInUser.following}}
+                </div>
+                <div>
+                    following
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profileBtmContainer flexDown">
+        <div ng-if="true" class="flexDown">
+            <i class="icon-nostory iconContainer"></i>
+            <div class="noStoriesRecorded">
+                No stories recorded
+            </div>
+        </div>
+        <div ng-if="false">
+            
+        </div>
+    </div>
+</ion-content>
+<ion-footer-bar class="profileFooter">
+  
+</ion-footer-bar>

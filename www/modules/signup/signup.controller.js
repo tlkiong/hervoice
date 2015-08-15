@@ -62,6 +62,13 @@
             common.showLoading("Signing up . . .");
             var tempObj = {};
             angular.copy(vm.authData, tempObj);
+            if(vm.active.male) {
+                tempObj["gender"] = "male";
+            } else if (vm.active.female) {
+                tempObj["gender"] = "female";
+            }
+
+            tempObj["stories"] = 0;
 
             vm.service.firebaseSignup(tempObj).then(function (rs) {
                 console.log(rs);
@@ -70,7 +77,7 @@
                 loginService.firebaseSimpleLogin(tempObj).then(function (rs) {
                     angular.copy(rs, loginService.loginUser);
                     common.hideLoading();
-                    $state.go("sample");
+                    $state.go("profile");
                 }, function (err) {
                     common.hideLoading();
                     myAlert(err);

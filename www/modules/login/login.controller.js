@@ -9,6 +9,8 @@
         // vm.fbLogin = fbLogin;
         vm.firebaseSimpleLogin = firebaseSimpleLogin;
         vm.goToSignUpPage = goToSignUpPage;
+
+        vm.mockLogin = mockLogin;
         
 
         /* ======================================== Var ======================================== */
@@ -20,7 +22,12 @@
         myAlert = common.alert;
 
         /* ======================================== Public Methods ======================================== */
-        
+        function mockLogin() {
+            vm.authData["emailAdd"] = "testing@testing.com";
+            vm.authData["password"] = "123";
+
+            firebaseSimpleLogin();
+        }
 
         function goToSignUpPage() {
             $state.go("signup");
@@ -35,7 +42,7 @@
             vm.service.firebaseSimpleLogin(tempObj).then(function (rs) {
                 common.hideLoading();
                 angular.copy(rs, vm.service.loginUser);
-                $state.go("sample");
+                $state.go("profile");
             }, function (err) {
                 common.hideLoading();
                 myAlert(err);
@@ -54,7 +61,9 @@
         /* ======================================== Private Methods ======================================== */
 
         function init() {
-            common.firebase.unauth();
+            common.getFirebase().then(function (rs) {
+                rs.unauth();
+            })
         }
 
         init();
