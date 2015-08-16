@@ -1,4 +1,8 @@
-<ion-content>
+<ion-content class="profileContainer">
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="vm.refreshPostList()">
+    </ion-refresher>
     <div class="profileTopContainer bgColor flexDown">
         <div class="imgContainer">
             <div class="hexagon" ng-style="{'background-image': 'url(' + vm.loggedInUser.profilePic + ')'}">
@@ -7,14 +11,14 @@
             </div>
         </div>
         <div class="topMidContainer">
-            {{vm.loggedInUser.location}}
+            @{{vm.loggedInUser.displayName}} | {{vm.loggedInUser.location}}
         </div>
         <div class="flexAcross topBtmContainer">
             <div class="flexDown storiesContainer">
                 <div class="value">
                     {{vm.loggedInUser.stories}}
                 </div>
-                <div>
+                <div class="lbl">
                     stories
                 </div>
             </div>
@@ -22,7 +26,7 @@
                 <div class="value">
                     {{vm.loggedInUser.followers}}
                 </div>
-                <div>
+                <div class="lbl">
                     followers
                 </div>
             </div>
@@ -30,21 +34,34 @@
                 <div class="value">
                     {{vm.loggedInUser.following}}
                 </div>
-                <div>
+                <div class="lbl">
                     following
                 </div>
             </div>
         </div>
     </div>
     <div class="profileBtmContainer flexDown">
-        <div ng-if="true" class="flexDown">
+        <div ng-if="vm.posts.length <= 0" class="flexDown">
             <i class="icon-nostory iconContainer"></i>
             <div class="noStoriesRecorded">
                 No stories recorded
             </div>
         </div>
-        <div ng-if="false">
-            
+        <div ng-if="vm.posts.length > 0">
+            <div ng-repeat="post in vm.posts" class="postedContainer" ng-style="{'background-image': 'url(' + post.image + ')'}">
+                <div class="flexDown thisContainer">
+                    <div>{{post.dateTime | date:'d MMMM y'}}</div>
+                    <br>
+                    <div class="ti">{{post.title}}</div>
+                </div>
+                <div class="flexAcross thatContainer">
+                    <i class="icon-like"></i>
+                    <div>{{post.likes}}</div>
+                    <i class="icon-comment"></i>
+                    <div>{{post.comments}}</div>
+                    <i class="icon-more"></i>
+                </div>
+            </div>
         </div>
     </div>
 </ion-content>

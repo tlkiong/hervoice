@@ -357,7 +357,7 @@
     width: 100%;
     text-align: center;
     text-transform: capitalize;
-    font-size: 1.5em;
+    font-size: 1.4em;
     color: white;
     margin: 0 0 1em 0;
 }
@@ -370,14 +370,23 @@
     margin: 0 1em 1em 1em;
 }
 
+.profileTopContainer .lbl {
+    font-size: 0.9em;
+}
+
+.profileTopContainer .value {
+    font-size: 1.9em;
+}
+
 .profileTopContainer .storiesContainer {
     text-align: center;
-    margin-right: 2em;
+    margin-right: 2.2em;
+    margin-left: 0.5em;
 }
 
 .profileTopContainer .followersContainer {
     text-align: center;
-    margin-right: 1.5em;
+    margin-right: 2em;
 }
 
 .profileTopContainer .followingContainer {
@@ -556,4 +565,44 @@
 
 .profileFooter .icon-addstory {
     font-size: 3.3em;
+}
+
+.postedContainer {
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    margin: 1em;
+    font-size: 1.5em;
+}
+
+.postedContainer .thisContainer {
+    margin: 1em;
+    padding: 1em;
+    color: white;
+}
+
+.postedContainer .thisContainer .ti{
+    text-transform: uppercase;
+}
+
+.postedContainer .thatContainer {
+    margin: 1em;
+    padding: 1em;
+    color: #a7a7a7;
+}
+
+.postedContainer .thatContainer i {
+    margin-right: 1em;
+}
+
+.postedContainer .thatContainer .icon-more {
+    margin-left: 4.5em;
+}
+
+.postedContainer .thatContainer div {
+    margin-right: 1em;
+}
+
+.profileContainer {
+    position: absolute;
+    bottom: 5.7em;
 }

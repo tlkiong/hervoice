@@ -2,9 +2,9 @@
     angular.module("SharePost")
         .controller("sharePostController", addstoryController);
 
-    addstoryController.$inject = ["$ionicPopup", "loginService", "$state", "common", "$ionicHistory", "addstoryService", "$http", "addstoryService"];
+    addstoryController.$inject = ["$ionicPopup", "loginService", "$state", "common", "$ionicHistory", "addstoryService", "$http", "addstoryService", "profileService", "$timeout"];
 
-    function addstoryController($ionicPopup, loginService, $state, common, $ionicHistory, addstoryService, $http, addstoryService) {
+    function addstoryController($ionicPopup, loginService, $state, common, $ionicHistory, addstoryService, $http, addstoryService, profileService, $timeout) {
         var vm = this;
         vm.goBack = goBack;
         vm.activate = activate;
@@ -22,17 +22,30 @@
 
         /* ======================================== Services ======================================== */
         vm.addstoryService = addstoryService;
+        vm.profileService = profileService;
 
         /* ======================================== Public Methods ======================================== */
         function sharePost() {
-            console.log(vm.addstoryService);
-            var tempObj = {
+            console.log(vm.addstoryService.sharedPost);
+            if(vm.addstoryService.sharedPost.image == undefined || vm.addstoryService.sharedPost.image == null) {
+                vm.addstoryService.sharedPost.image = "";
+            }
 
+            var tempObj = {
+                title: vm.addstoryService.sharedPost.title,
+                content: vm.addstoryService.sharedPost.content,
+                image: vm.addstoryService.sharedPost.image,
+                likes: 0,
+                commentId: "",
+                author: loginService.loginUser.emailAdd,
+                dateTime: Date.now()
             };
 
 
             firebase.then(function(rs) {
-                rs.push();   
+                rs.push(tempObj);
+                $state.go("profile");
+                $timeout(vm.profileService.event_profileModified(0), 500);
             })
         }
 

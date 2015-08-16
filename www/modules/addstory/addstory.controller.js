@@ -2,9 +2,9 @@
     angular.module("AddStory")
         .controller("addstoryController", addstoryController);
 
-    addstoryController.$inject = ["$ionicPopup", "loginService", "$state", "common", "$ionicHistory", "$cordovaCapture", "$http", "addstoryService"];
+    addstoryController.$inject = ["$ionicPopup", "loginService", "$state", "common", "$ionicHistory", "$cordovaCapture", "$http", "addstoryService", "$cordovaCamera"];
 
-    function addstoryController($ionicPopup, loginService, $state, common, $ionicHistory, $cordovaCapture, $http, addstoryService) {
+    function addstoryController($ionicPopup, loginService, $state, common, $ionicHistory, $cordovaCapture, $http, addstoryService, $cordovaCamera) {
         var vm = this;
         vm.goBack = goBack;
         vm.activate = activate;

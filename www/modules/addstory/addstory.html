@@ -23,7 +23,7 @@
         </div>
         <div class="flexAcross">
             <div ng-if="vm.post.image.length > 0" class="imageContainer">
-                <img alt="lala" src="vm.post.image" />
+                <img alt="lala" data-ng-src="{{vm.post.image}}" />
             </div>
             <div ng-if="vm.post.title.length > 0 && vm.post.content.length > 0" class="rightArrowContainer" ng-click="vm.goTo('sharePost')">
                 <i class="icon-next"></i>
@@ -31,6 +31,6 @@
         </div>
     </div>
 </ion-content>
-<div class="cameraContainer" ng-click="" ng-if="vm.post.image.length <= 0">
+<div class="cameraContainer" ng-click="vm.getImg()" ng-if="((vm.post.image.length <= 0 || vm.post.image.length == undefined || vm.post.image.length == null)&&(vm.active.text && !vm.active.voice))">
     <i class="icon-camera"></i>
 </div>

@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'hervoice-logo';
-	src:url('fonts/hervoice-logo.eot?-2kng8v');
-	src:url('fonts/hervoice-logo.eot?#iefix-2kng8v') format('embedded-opentype'),
-		url('fonts/hervoice-logo.ttf?-2kng8v') format('truetype'),
-		url('fonts/hervoice-logo.woff?-2kng8v') format('woff'),
-		url('fonts/hervoice-logo.svg?-2kng8v#hervoice-logo') format('svg');
+	src:url('fonts/hervoice-logo.eot?8c1jdu');
+	src:url('fonts/hervoice-logo.eot?#iefix8c1jdu') format('embedded-opentype'),
+		url('fonts/hervoice-logo.ttf?8c1jdu') format('truetype'),
+		url('fonts/hervoice-logo.woff?8c1jdu') format('woff'),
+		url('fonts/hervoice-logo.svg?8c1jdu#hervoice-logo') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -32,51 +32,63 @@
 .icon-close:before {
 	content: "\e602";
 }
-.icon-email:before {
+.icon-comment:before {
 	content: "\e603";
 }
-.icon-fb:before {
+.icon-email:before {
 	content: "\e604";
 }
-.icon-gplus:before {
+.icon-fb:before {
 	content: "\e605";
 }
-.icon-hervoice:before {
+.icon-gplus:before {
 	content: "\e606";
 }
-.icon-home:before {
+.icon-hervoice:before {
 	content: "\e607";
 }
-.icon-mic:before {
+.icon-home:before {
 	content: "\e608";
 }
-.icon-next:before {
+.icon-like:before {
 	content: "\e609";
 }
-.icon-nostory:before {
+.icon-mic:before {
 	content: "\e60a";
 }
-.icon-notification:before {
+.icon-more:before {
 	content: "\e60b";
 }
-.icon-popular:before {
+.icon-next:before {
 	content: "\e60c";
 }
-.icon-profile:before {
+.icon-nostory:before {
 	content: "\e60d";
 }
-.icon-settings:before {
+.icon-notification:before {
 	content: "\e60e";
 }
-.icon-textinput:before {
+.icon-popular:before {
 	content: "\e60f";
 }
-.icon-tumblr:before {
+.icon-profile:before {
 	content: "\e610";
 }
-.icon-twitter:before {
+.icon-reportandshare:before {
 	content: "\e611";
 }
-.icon-voiceinput:before {
+.icon-settings:before {
 	content: "\e612";
+}
+.icon-textinput:before {
+	content: "\e613";
+}
+.icon-tumblr:before {
+	content: "\e614";
+}
+.icon-twitter:before {
+	content: "\e615";
+}
+.icon-voiceinput:before {
+	content: "\e616";
 }
