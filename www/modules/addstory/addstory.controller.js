@@ -15,14 +15,13 @@
         /* ======================================== Var ======================================== */
         vm.post = {};
 
-        var idolOnDemang = {
+        var idolOnDemand = {
             apikey: "389c946c-da84-45a0-9c7c-bc5512c2f70f"
         }
         vm.active = {
             text: false,
             voice: false
         }
-        var path = "https://api.idolondemand.com/1/api/async/recognizespeech/v1";
 
         /* ======================================== Services ======================================== */
         vm.service = addstoryService;
@@ -61,7 +60,7 @@
                 limit: 1
             };
             $cordovaCapture.captureAudio(options).then(function(audioData) {
-                console.log(audioData);
+                    console.log(audioData);
                     postData(audioData[0].localURL);
                 },
                 function(err) {
@@ -85,48 +84,60 @@
         }
 
         /* ======================================== Private Methods ======================================== */
-        var win = function (r) {
+        var win = function(r) {
             console.log(r);
             console.log("Code = " + r.responseCode);
             console.log("Response = " + r.response);
             console.log("Sent = " + r.bytesSent);
-            getData(r.response.jobID);
+            var jobId = JSON.parse(r.response).jobID;
+            console.log(r.response);
+            console.log(jobId);
+            common.hideLoading();
+            getData(jobId);
         }
 
-        var fail = function (error) {
+        var fail = function(error) {
+            common.hideLoading();
             alert("An error has occurred: Code = " + error.code);
             console.log("upload error source " + error.source);
             console.log("upload error target " + error.target);
         }
-        
+
         function postData(fileURL) {
+            common.showLoading("Processing data . . .");
             var options = new FileUploadOptions();
             options.fileKey = "file";
             options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
             options.mimeType = "text/plain";
 
             var params = {};
-            params.apikey = "389c946c-da84-45a0-9c7c-bc5512c2f70f";
+            params.apikey = idolOnDemand.apikey;
 
             options.params = params;
 
-            
+            var path = "https://api.idolondemand.com/1/api/async/recognizespeech/v1";
+
             var ft = new FileTransfer();
             ft.upload(fileURL, encodeURI(path), win, fail, options);
         }
 
         function getData(jobId) {
-            $http.get(path).
-              then(function(response) {
-                console.log(response);
-              }, function(err) {
+            common.showLoading("Finalizing data . . .");
+            var newPath = "https://api.idolondemand.com/1/job/result/" + jobId+"?apikey="+idolOnDemand.apikey;
+            $http.get(newPath).
+            then(function(response) {
+                vm.post.content = response.data.actions[0].result.document[0].content;
+                activate("text");
+                common.hideLoading();
+            }, function(err) {
+                common.hideLoading();
                 myAlert(err);
                 console.log(err);
-              });
+            });
         }
 
         function init() {
-            
+
         }
 
         init();

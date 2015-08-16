@@ -2,13 +2,19 @@
     angular.module("Profile")
         .service("profileService", profileService);
 
-    profileService.$inject = ["$state", "$ionicPopup", "common"];
+    profileService.$inject = ["$state", "$ionicPopup", "common", "$rootScope"];
 
-    function profileService($state, $ionicPopup, common) {
+    function profileService($state, $ionicPopup, common, $rootScope) {
+        var inventoryEventEnum = Object.freeze({
+            0: 'POST_MODIFIED'
+        });
+
         var service = this;
         service.fbLogin = fbLogin;
         service.firebaseSimpleLogin = firebaseSimpleLogin;
         service.firebaseLogout = firebaseLogout;
+        service.event_profileModified = event_profileModified;
+        service.on_postModified = on_postModified;
 
         /* ======================================== Var ======================================== */
         service.loginUser = {};
@@ -17,6 +23,16 @@
         /* ======================================== Services ======================================== */
 
         /* ======================================== Public Functions ======================================== */
+        function event_profileModified(arrIndex) { 
+            $rootScope.$broadcast(inventoryEventEnum[arrIndex]); 
+        }
+
+        function on_postModified($scope, handler) {
+            $scope.$on(inventoryEventEnum[0], function(/*event*/){
+                handler();
+            });
+        }
+
         function firebaseLogout() {
             firebase.then(function (rs) {
                 rs.unauth();
