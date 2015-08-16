@@ -34,10 +34,11 @@
         function init() {
             if(vm.loggedInUser.profilePic == undefined || vm.loggedInUser.profilePic == null) {
                 vm.loggedInUser["profilePic"] = "./img/profileimageinside.png";
-                vm.loggedInUser["location"] = "singapore";
-                vm.loggedInUser["followers"] = 13;
-                vm.loggedInUser["following"] = 10;
             }
+
+            vm.loggedInUser["location"] = "singapore";
+            vm.loggedInUser["followers"] = 13;
+            vm.loggedInUser["following"] = 10;
 
             if(vm.loggedInUser.stories == undefined || vm.loggedInUser.stories == null) {
                 vm.loggedInUser["stories"] = 0;

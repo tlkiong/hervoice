@@ -24,7 +24,7 @@
 }
 
 .herVoiceLogo {
-    font-size: 10em;
+    font-size: 15em;
     background: -webkit-linear-gradient(#ef6d3b, #d83159);
     /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#ef6d3b, #d83159);
@@ -36,7 +36,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
-    margin-top: 0.3em;
 }
 
 .loginContainer {
@@ -538,4 +537,23 @@
 
 .tumblrSelected {
     color: #35465c;
+}
+
+.profileFooter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1.2em 0;
+}
+
+.profileFooter i {
+    font-size: 2.5em;
+}
+
+.iconTainer {
+    padding-top: 0.4em;
+}
+
+.profileFooter .icon-addstory {
+    font-size: 3.3em;
 }
