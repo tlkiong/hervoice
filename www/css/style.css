@@ -101,7 +101,9 @@
     background-size: cover;
 }
 
-.signupFormContainer {}
+.signupFormContainer {
+    font-size: 0.1em;
+}
 
 .signupFormContainer div {
     width: 90%;
@@ -141,7 +143,7 @@
     width: 90%;
     font-size: 2em;
     margin-left: 0.6em;
-    margin-top: 1.5em;
+    margin-top: 0.3em;
     padding: 0.3em 0 0.5em 0;
 }
 
@@ -188,8 +190,8 @@
 
 .signupFormContainer .imgContainer {
     border-bottom: none;
-    margin-left: 8em;
-    margin-top: 0.7em;
+    margin-left: 35%;
+    margin-top: 2em;
 }
 
 .signupFormContainer .hexagon {
@@ -215,7 +217,7 @@
     -ms-transform: scaleY(0.5774) rotate(-45deg);
     transform: scaleY(0.5774) rotate(-45deg);
     background: inherit;
-    left: 1.57px;
+    left: 6.57px;
 }
 
 
@@ -237,7 +239,7 @@
 }
 
 .signupFormContainer .hexTop {
-    top: -63.4264px
+    top: -53.4264px;
 }
 
 .signupFormContainer .hexTop:after {
@@ -399,4 +401,141 @@
     font-size: 1.5em;
     width: 100%;
     text-align: center;
+}
+
+.profileFooter {
+
+}
+
+.profileFooter div {
+    width: 20%;
+    text-align: center;
+}
+
+
+
+.bar-custom {
+    background-color: #d83159;
+}
+
+.bar-custom .backBtnSize {
+    font-size: 2em;
+    background-color: #d83159;
+    border: none;
+    color: white;
+}
+
+.bar-custom .title {
+    color: white;
+    font-size: 0.5em;
+}
+
+.inputContainer {
+    margin: 0.5em 0.3em 0.3em 0.3em;
+    font-size: 10em;
+}
+
+.inputContainer .txtInput {
+    color: #8aa29e;
+    margin-right: 0.05em;
+}
+
+.inputContainer .voiceInput {
+    color: #3d5567;
+}
+
+.micInputContainer {
+    margin: 1em 0.75em 0.75em 0.75em;
+    font-size: 10em;
+}
+
+.titleInput {
+    font-size: 2em;
+}
+
+.txtAreaContainer {
+    font-size: 1.5em;
+    margin: 1em;
+    height: 18em;
+}
+
+.cameraContainer {
+    position: absolute;
+    bottom: 0.3em;
+    font-size: 3em;
+    color: #333;
+    margin-left: 0.3em;
+}
+
+.imageContainer {
+    height: 100px;
+    width: 100px;
+    margin-left: 1.5em;
+}
+
+.rightArrowContainer {
+    font-size: 4em;
+    color: red;
+    margin-bottom: 0.45em;
+    margin-left: 2.9em;
+    transform: rotate( -180deg );
+}
+
+.btmContainer {
+    position: absolute;
+    bottom: 0;
+    background-color: #d83159;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3em;
+    color: white;
+    text-transform: uppercase;
+    padding: 1.25em 4.5em;
+}
+
+.btmContainer .icon-next {
+    transform: rotate( -180deg );
+    margin-left: 0.5em;
+}
+
+.shareVoiceContainer {
+    font-size: 1.5em;
+    margin: 1em 1em 0 4em;
+
+}
+
+.shareVoiceContainer .shareLbl{
+    padding-top: 0.2em;
+}
+
+
+.shareVoiceContainer label {
+    margin-left: 1em;
+}
+
+.socialContainer {
+    background-color: #e3e3e3;
+    padding: 1em;
+    font-size: 1.5em;
+    margin: 1em;
+}
+
+.socialContainer i {
+    margin-right: 2em;
+}
+
+.fbSelected {
+    color: #3b5998;
+}
+
+.twitterSelected {
+    color: #55acee;
+}
+
+.googleSeleted {
+    color: #d34836;
+}
+
+.tumblrSelected {
+    color: #35465c;
 }

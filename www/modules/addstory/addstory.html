@@ -1,0 +1,36 @@
+<ion-header-bar align-title="center" class="bar-custom">
+    <button class="button backBtnSize" ng-click="vm.goBack()">
+        <i class="ion-close"></i>
+    </button>
+    <h1 class="title">Add your story</h1>
+</ion-header-bar>
+<ion-content>
+    <div class="flexDown">
+        <label class="item item-input titleInput">
+            <input type="text" placeholder="Title" ng-model="vm.post.title">
+        </label>
+        <div class="flexAcross inputContainer" ng-if="!vm.active.voice && !vm.active.text">
+            <i class="icon-textinput txtInput" ng-click="vm.activate('text')"></i>
+            <i class="icon-voiceinput voiceInput" ng-click="vm.activate('voice')"></i>
+        </div>
+        <div ng-if="vm.active.voice">
+            <div class="micInputContainer">
+                <i class="icon-mic micInput" ng-click="vm.recordAudio()"></i>
+            </div>
+        </div>
+        <div ng-if="vm.active.text">
+            <textarea class="txtAreaContainer" rows="4" cols="31" placeholder="Your story here" ng-model="vm.post.content"></textarea>
+        </div>
+        <div class="flexAcross">
+            <div ng-if="vm.post.image.length > 0" class="imageContainer">
+                <img alt="lala" src="vm.post.image" />
+            </div>
+            <div ng-if="vm.post.title.length > 0 && vm.post.content.length > 0" class="rightArrowContainer" ng-click="vm.goTo('sharePost')">
+                <i class="icon-next"></i>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<div class="cameraContainer" ng-click="" ng-if="vm.post.image.length <= 0">
+    <i class="icon-camera"></i>
+</div>

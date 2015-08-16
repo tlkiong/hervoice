@@ -6,7 +6,9 @@
     "Login",
     "Signup",
     "Sample",
-    "Profile"
+    "Profile",
+    "AddStory",
+    "SharePost"
     ])
 
   .config(function($urlRouterProvider, $compileProvider){

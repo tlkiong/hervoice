@@ -6,7 +6,7 @@
 
     function profileController($ionicPopup, loginService, $state, common, profileService) {
         var vm = this;
-        
+        vm.goTo = goTo;
 
         /* ======================================== Var ======================================== */
         vm.loggedInUser = loginService.loginUser;
@@ -15,6 +15,19 @@
         myAlert = common.alert;
 
         /* ======================================== Public Methods ======================================== */
+        function goTo(where) {
+            if(where == "timeline") {
+                $state.go("");
+            } else if(where == "popularPost") {
+                $state.go("");
+            } else if(where == "addStory") {
+                $state.go("addstory");
+            } else if(where == "notifications") {
+                $state.go("");
+            } else if(where == "profile") {
+                $state.go("");
+            } 
+        }
 
         /* ======================================== Private Methods ======================================== */
 

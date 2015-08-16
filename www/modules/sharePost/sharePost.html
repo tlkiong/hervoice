@@ -1,0 +1,37 @@
+<ion-header-bar align-title="center" class="bar-custom">
+    <button class="button backBtnSize" ng-click="vm.goBack()">
+        <i class="icon-next"></i>
+    </button>
+    <h1 class="title">Add your story</h1>
+</ion-header-bar>
+<ion-content class="midContainer flexDown">
+    <div class="flexAcross shareVoiceContainer">
+        <div class="shareLbl">Share your voice</div>
+        <label class="toggle toggle-balanced">
+           <input type="checkbox">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+        </label>
+    </div>
+    <div class="flexAcross socialContainer" ng-class="{'fbSelected':vm.socialMedia.fb}" ng-click="vm.activate('fb')">
+        <i class="icon-fb"></i>
+        <div>Share to Facebook</div>
+    </div>
+    <div class="flexAcross socialContainer" ng-class="{'twitterSelected':vm.socialMedia.twitter}" ng-click="vm.activate('twitter')">
+        <i class="icon-twitter"></i>
+        <div>Share to Twitter</div>
+    </div>
+    <div class="flexAcross socialContainer" ng-class="{'googleSeleted':vm.socialMedia.google}" ng-click="vm.activate('google')">
+        <i class="icon-gplus"></i>
+        <div>Share to Google+</div>
+    </div>
+    <div class="flexAcross socialContainer" ng-class="{'tumblrSelected':vm.socialMedia.tumblr}" ng-click="vm.activate('tumblr')">
+        <i class="icon-tumblr"></i>
+        <div>Share to Tumblr</div>
+    </div>
+</ion-content>
+<div class="btmContainer flexAcross" ng-click="vm.sharePost()">
+    Share your story
+    <i class="icon-next"></i>
+</div>
