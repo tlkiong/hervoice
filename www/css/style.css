@@ -100,6 +100,21 @@
     background-size: cover;
 }
 
+.bgImg {
+    background: url('../img/viewstory.jpg') no-repeat;
+    background-size: cover;
+}
+
+.bgImg1 {
+    background: url('../img/popular.jpg') no-repeat;
+    background-size: cover;
+}
+
+.bgImg2 {
+    background: url('../img/OthersProfile.jpg') no-repeat;
+    background-size: cover;
+}
+
 .signupFormContainer {
     font-size: 0.1em;
 }

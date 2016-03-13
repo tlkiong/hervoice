@@ -48,7 +48,8 @@
             </div>
         </div>
         <div ng-if="vm.posts.length > 0">
-            <div ng-repeat="post in vm.posts" class="postedContainer" ng-style="{'background-image': 'url(' + post.image + ')'}">
+            <div ng-repeat="post in vm.posts" class="postedContainer" ng-style="{'background-image': 'url(' + post.image + ')'}"
+                ng-click="vm.goToViewStory()">
                 <div class="flexDown thisContainer">
                     <div>{{post.dateTime | date:'d MMMM y'}}</div>
                     <br>

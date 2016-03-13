@@ -8,6 +8,7 @@
         var vm = this;
         vm.goTo = goTo;
         vm.refreshPostList = refreshPostList;
+        vm.goToViewStory = goToViewStory;
 
         /* ======================================== Var ======================================== */
         vm.service = profileService;
@@ -19,11 +20,15 @@
         var firebase = common.getFirebase;
 
         /* ======================================== Public Methods ======================================== */
+        function goToViewStory() {
+            $state.go("sample");
+        }
+
         function goTo(where) {
             if (where == "timeline") {
                 $state.go("");
             } else if (where == "popularPost") {
-                $state.go("");
+                $state.go("sample1");
             } else if (where == "addStory") {
                 $state.go("addstory");
             } else if (where == "notifications") {
@@ -52,13 +57,6 @@
                             likes: childSnapshot.val().likes,
                             title: childSnapshot.val().title
                         };
-
-                        console.log(tempObj);
-                        console.log(tempObj.image);
-                        
-
-
-
                         tempArr.push(tempObj);
                     });
 

@@ -8,7 +8,9 @@
     "Sample",
     "Profile",
     "AddStory",
-    "SharePost"
+    "SharePost",
+    "Sample1",
+    "Sample2"
     ])
 
   .config(function($urlRouterProvider, $compileProvider){
